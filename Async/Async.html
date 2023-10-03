@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async / Await</title>
+</head>
+<body>
+    <h1>Codiz World</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="btn">Click Me !</button>
+    <script>
+        console.log("Starting");
+        const sayHi = function(){
+            console.log("Hey! Umesh , Welcome to the Wrold of Coding !");
+        }
+
+        const changeMessage = function(){
+            console.log("Message",Date.now());
+        }
+        // const changeMe = setTimeout(changeMessage,2000);
+        let intervalId; 
+        document.querySelector('#stop').addEventListener('click', function(){
+            // clearTimeout(changeMessage);
+            clearInterval(intervalId);
+            console.log("Stopped");
+        });
+
+        document.querySelector('#start').addEventListener('click', function(){
+            intervalId = setInterval(changeMessage,1000);
+        });
+        // setTimeout(sayHi, 1000);
+
+
+        document.querySelector('#btn').addEventListener('click',function(){
+            this.style.color = 'red';
+        });
+
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+
+=========================  MAP , FILTER & REDUCE ===================
+
+map, filter, and reduce are three commonly used array methods in JavaScript, each serving a different purpose. 
+Here's a distinction between them:
+
+1. map:
+
+Purpose: map is used for transforming an array by applying a function to each element and creating a new array with the results of those function calls. It doesn't change the original array.
+
+Use Case: Use map when you want to apply a function to every element of an array to generate a new array of the same length.
+
+Return Value: It returns a new array of the same length as the original, where each element is the result of applying the provided function to the corresponding element in the original array.
+
+Example: Converting a list of Celsius temperatures to Fahrenheit, mapping each temperature to its corresponding value.
+-> const celsiusTemperatures = [0, 10, 20, 30, 40];
+-> const fahrenheitTemperatures = celsiusTemperatures.map((celsius) => (celsius * 9/5) + 32);
+
+2. filter:
+
+Purpose: The filter method is used for selecting elements from an array that meet a specific condition and creating a new array containing only those elements. It doesn't change the original array.
+
+Use Case: Use filter when you want to extract elements from an array that satisfy a given condition.
+
+Example :- 
+const numbers = [1, 2, 3, 4, 5, 6];
+const evenNumbers = numbers.filter((num) => num % 2 === 0);
+// Result: [2, 4, 6]
+
+3. reduce:
+
+Purpose: The reduce method is used for aggregating or reducing an array into a single value by applying a given function cumulatively to the elements in the array.
+
+Use Case: Use reduce when you need to perform a cumulative calculation on the elements of an array, such as calculating a sum, product, or finding the maximum/minimum value.
+Example:- 
+const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+// Result: 10 (sum of all numbers)
+
+
+In summary:
+
+map : transforms each element of an array and returns a new array.
+filter : selects elements from an array based on a condition and returns a new array.
+reduce : combines all elements of an array into a single value using a cumulative operation. / aggregates or reduces an array into a single value based on a cumulative operation.
+
+
+=======================================================================================================================================================================

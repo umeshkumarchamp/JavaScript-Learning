@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+</head>
+<body>
+    <div class="todo-list">
+        <h2>To-Do List</h2>
+        <input type="text" id="new-task", placeholder="add new task ...">
+        <button type="button" onclick="addTask()">Add Task</button>
+        <ul id="tasks"></ul>
+    </div>
+
+    <script>
+        const tasks = []; 
+        
+        // add a new task to the list
+        function addTask() {
+            const newTaskText = document.getElementById("new-task").value; 
+            if(newTaskText !== ""){
+                tasks.push({text : newTaskText , completed : false});
+                document.getElementById("new-task").value = "";
+                displayTasks();
+                
+            }
+            
+        }
+
+        function displayTasks(){
+            const taskList = document.getElementById("tasks");
+            taskList.innerHTML = ""; 
+            
+            for(let i=0; i< tasks.length; i++){
+                const taskItem = document.createElement("li");
+                taskItem.innerHTML = `
+                    <span class="${tasks[i].completed ? 'completed' : ''}">
+                        ${tasks[i].text}
+                    </span>
+                    <button onclick="toogleCompleted(${i})">
+                        ${tasks[i].completed ? 'Undo' : 'Complete'}
+                    </button>
+                    <button onclick="deleteTask(${i})">Delete</button>
+                `;
+                taskList.appendChild(taskItem);
+            }
+        }
+        displayTasks();
+
+        // function to toogle task completed
+        function toogleCompleted(index){
+                tasks[index].completed = !tasks[index].completed;
+                displayTasks();
+        }
+
+        // function to delete task 
+        function deleteTask(index){
+            tasks.splice(index, 1);
+            displayTasks();
+        }
+
+    </script>
+
+
+</body>
+</html>
